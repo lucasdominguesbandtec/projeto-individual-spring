@@ -6,6 +6,7 @@ public class Servico extends PedidoCompra{
     private String descricao;
     private Integer horasTrabalho;
     private Double valorHoras;
+    private Double valorImposto;
 
     public Servico(Integer numeroPO, Double valorTotal, Integer codigo, String descricao, Integer horasTrabalho, Double valorHoras) {
         super(numeroPO, valorTotal);
@@ -17,7 +18,8 @@ public class Servico extends PedidoCompra{
 
     @Override
     public Double getValorImposto() {
-        return this.valorHoras * this.horasTrabalho / 0.20;
+        this.valorImposto = this.valorHoras * this.horasTrabalho * 0.20;
+        return this.valorImposto;
     }
 
     @Override
@@ -28,7 +30,6 @@ public class Servico extends PedidoCompra{
                 ", Descrição do serviço ='" + descricao + '\'' +
                 ", Horas trabalho = " + horasTrabalho +
                 ", ValorHoras=" + valorHoras +
-                ", Valor do imposto = " + getValorHoras() +
                 "} ";
     }
 

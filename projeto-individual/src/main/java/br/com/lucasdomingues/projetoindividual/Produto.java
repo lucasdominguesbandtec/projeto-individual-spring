@@ -16,7 +16,7 @@ public class Produto extends PedidoCompra {
     @Override
     public Double getValorImposto() {
         return this.precoCusto * 0.18;
-    }
+  }
 
     @Override
     public String toString() {

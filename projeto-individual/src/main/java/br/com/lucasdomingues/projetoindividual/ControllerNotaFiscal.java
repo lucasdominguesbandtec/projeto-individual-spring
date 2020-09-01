@@ -9,15 +9,17 @@ import java.util.List;
 @RequestMapping("/pedidos")
 public class ControllerNotaFiscal {
 
-    private List<PedidoCompra> pedidos;
+    private List<PedidoCompra> pedidos =  new ArrayList<PedidoCompra>();
 
-    public ControllerNotaFiscal() {
-        this.pedidos = new ArrayList<PedidoCompra>();
+
+    @PostMapping("/cadastrarProduto")
+    public void cadastrarPedido(@RequestBody Produto produto) {
+        pedidos.add(produto);
     }
 
-    @PostMapping("/cadastrar")
-    public void cadastrarPedido(@RequestBody PedidoCompra pedidoCompra) {
-        pedidos.add(pedidoCompra);
+    @PostMapping("/cadastrarServico")
+    public void cadastrarServico(@RequestBody Servico servico) {
+        pedidos.add(servico);
     }
 
     @GetMapping("/exibir")
