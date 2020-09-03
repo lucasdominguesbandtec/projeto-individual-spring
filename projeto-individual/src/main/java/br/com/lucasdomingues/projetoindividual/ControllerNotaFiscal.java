@@ -37,10 +37,16 @@ public class ControllerNotaFiscal {
         pedidos.remove(id-1);
     }
 
-    @PutMapping("/alterar/{id}")
-    public void alterarPedido(@PathVariable int id, @RequestBody PedidoCompra pedido) {
+    @PutMapping("/alterarProduto/{id}")
+    public void alterarProduto(@PathVariable int id, @RequestBody Produto produto) {
         pedidos.remove(id-1);
-        pedidos.add(id-1, pedido);
+        pedidos.add(id-1, produto);
+    }
+
+    @PutMapping("/alterarServico/{id}")
+    public void alterarServico(@PathVariable int id, @RequestBody Servico servico) {
+        pedidos.remove(id-1);
+        pedidos.add(id-1, servico);
     }
 
 }
